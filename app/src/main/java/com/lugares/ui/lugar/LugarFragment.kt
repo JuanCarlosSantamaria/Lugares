@@ -13,9 +13,6 @@ import com.lugares.viewmodel.LugarViewModel
 class LugarFragment : Fragment() {
 
     private var _binding: FragmentLugarBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -27,13 +24,9 @@ class LugarFragment : Fragment() {
             ViewModelProvider(this).get(LugarViewModel::class.java)
 
         _binding = FragmentLugarBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-        return root
+
+        return binding.root
     }
 
     override fun onDestroyView() {

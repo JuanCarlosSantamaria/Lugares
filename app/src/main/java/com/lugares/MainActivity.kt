@@ -45,10 +45,12 @@ class MainActivity : AppCompatActivity() {
                     if (task.isSuccessful) { //Si se pudo crear el usuario
                         Log.d("Authenticating", "User created")
                         user = auth.currentUser   //Recupero la info del usuario creado
+                        update(user)
                     } else {
                         Log.d("Authenticating", "Error authenticating user")
+                        update(null)
                     }
-                    update(user)
+
                 }
 
     }
